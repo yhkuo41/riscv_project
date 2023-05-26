@@ -1,8 +1,12 @@
 CC := g++
-# CC = riscv32-unknown-elf-g++
-# CC = riscv32-unknown-linux-gnu-g++
-CFLAGS := -g -Wall -ansi -std=c++14 -O0
-SRCS := const.h getop.cpp getop.h stack.h stack.cpp util.cpp util.h main.cpp
+# CC := riscv32-unknown-elf-g++
+# CC := riscv32-unknown-linux-gnu-g++
+OBJDUMP := objdump
+# OBJDUMP := riscv32-unknown-elf-objdump
+# OBJDUMP := riscv32-unknown-linux-gnu-objdump
+CFLAGS := -Wall -ansi -std=c++14 -O0 -fno-asynchronous-unwind-tables -fno-exceptions -fno-rtti -fverbose-asm
+# CFLAGS := -static -Wall -ansi -std=c++14 -O0 -fno-asynchronous-unwind-tables -fno-exceptions -fno-rtti -fverbose-asm
+SRCS := getop.cpp stack.cpp util.cpp main.cpp
 OBJS := $(SRCS:.cpp=.o)
 EXECUTABLE := main.out
 
@@ -21,7 +25,7 @@ asm: $(SRCS)
 
 # Generate objdump output
 objdump: $(EXECUTABLE)
-	objdump -d $< > $(EXECUTABLE).objdump
+	$(OBJDUMP) -d $< > $(EXECUTABLE).objdump
 
 # Rule for compiling source files to object files
 %.o: %.cpp
@@ -29,4 +33,4 @@ objdump: $(EXECUTABLE)
 
 # Clean up the generated files
 clean:
-	rm -f $(OBJS) $(EXECUTABLE) $(EXECUTABLE).objdump
+	rm -f $(OBJS) $(EXECUTABLE) $(EXECUTABLE).objdump $(SRCS:.cpp=.s)
