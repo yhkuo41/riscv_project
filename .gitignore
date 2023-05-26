@@ -35,5 +35,8 @@
 *.s
 *.asm
 
+# Objdump
+*.objdump
+
 # IDE
 .vscode
