@@ -7,7 +7,5 @@
 using namespace std;
 
 void print_error_exit(const string &s);
-bool isdigit_(const char &c);
-int atoi_(int s, int e, const string &input);
 
 #endif // !UTIL_H

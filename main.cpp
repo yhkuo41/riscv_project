@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "const.h"
 #include "util.h"
 #include "getop.h"
@@ -23,7 +24,9 @@ int main(int argc, char const *argv[])
     {
         if (op_type == NUMBER)
         {
-            stk.push(atoi_(s, e, input));
+            string tmp_str = input.substr(s, e - s + 1);
+            int tmp_int = atoi(tmp_str.c_str());
+            stk.push(tmp_int);
         }
         else if (op_type == '+')
         {

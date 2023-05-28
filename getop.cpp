@@ -17,7 +17,7 @@ char getop(int &s, int &e, const string &input)
     // only move 1 char, assuming the expression does not contain any whitespace
     if (e - 1 == s)
     {
-        if (isdigit_(input[s]))
+        if (isdigit(input[s]))
         {
             return NUMBER;
         }
