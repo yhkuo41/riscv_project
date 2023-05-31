@@ -4,6 +4,6 @@
 // max size of input string and stack
 const int MAX_INPUT_LEN = 4096;
 // represents number operand
-const char NUMBER = '0';
+static const char NUMBER = '0';
 
 #endif // !CONST_H
