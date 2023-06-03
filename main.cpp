@@ -8,18 +8,17 @@
 
 using namespace std;
 
+int s = 0, e = 0; // record the index at the beginning and end of the op
+char op_type;
+int op2; // for -, / the left and right operands must be distinguished
+string input = "";
+
 int main(int argc, char const *argv[])
 {
     cout << "Please input a postfix arithmetic expression: " << flush;
-    string input;
     cin >> input;
     cout << input << endl;
-
-    int s = 0, e = 0; // record the index at the beginning and end of the op
-    char op_type;
-    int op2; // for -, / the left and right operands must be distinguished
     Stack stk;
-
     while ((op_type = getop(s, e, input)) != '.')
     {
         if (op_type == NUMBER)
