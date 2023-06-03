@@ -23,9 +23,9 @@ $(EXECUTABLE): $(OBJS)
 asm: $(SRCS)
 	$(CC) $(CFLAGS) -S $^
 
-# Generate objdump output
+# Generate objdump output (if with -static option, the objdump will warn you that main.out file is not a dynamic object)
 objdump: $(EXECUTABLE)
-	$(OBJDUMP) -d $< > $(EXECUTABLE).objdump
+	$(OBJDUMP) -d -C -S -t -T $< > $(EXECUTABLE).objdump
 
 # Rule for compiling source files to object files
 %.o: %.cpp
