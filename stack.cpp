@@ -2,21 +2,17 @@
 
 void Stack::push(int num)
 {
-    if (sp < MAX_INPUT_LEN)
-    {
+    if (sp < MAX_INPUT_LEN) {
         stk[sp] = num;
         sp++;
-    }
-    else
-    {
+    } else {
         print_error_exit("stack full, cant push");
     }
 }
 
 int Stack::pop()
 {
-    if (sp > 0)
-    {
+    if (sp > 0) {
         --sp;
         return stk[sp];
     }

@@ -16,4 +16,4 @@ public:
     int size();
 };
 
-#endif // !STACK_H
+#endif  // !STACK_H

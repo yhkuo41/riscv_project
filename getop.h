@@ -9,4 +9,4 @@ using namespace std;
 
 char getop(int &s, int &e, const string &input);
 
-#endif // !GETOP_H
+#endif  // !GETOP_H
